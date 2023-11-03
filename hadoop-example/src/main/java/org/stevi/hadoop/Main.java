@@ -5,11 +5,10 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.FileInputFormat;
 import org.apache.hadoop.mapred.FileOutputFormat;
-import org.apache.hadoop.mapred.InputFormat;
 import org.apache.hadoop.mapred.JobClient;
 import org.apache.hadoop.mapred.JobConf;
-import org.apache.hadoop.mapred.OutputFormat;
-import org.apache.hadoop.mapred.Reducer;
+import org.apache.hadoop.mapred.TextInputFormat;
+import org.apache.hadoop.mapred.TextOutputFormat;
 
 import java.io.IOException;
 
@@ -21,10 +20,10 @@ public class Main {
         jobConf.setOutputKeyClass(Text.class);
         jobConf.setOutputValueClass(IntWritable.class);
         jobConf.setMapperClass(WordMapper.class);
-        jobConf.setCombinerClass(Reducer.class);
-        jobConf.setReducerClass(Reducer.class);
-        jobConf.setInputFormat(InputFormat.class);
-        jobConf.setOutputFormat(OutputFormat.class);
+        jobConf.setCombinerClass(WordReducer.class);
+        jobConf.setReducerClass(WordReducer.class);
+        jobConf.setInputFormat(TextInputFormat.class);
+        jobConf.setOutputFormat(TextOutputFormat.class);
 
         FileInputFormat.setInputPaths(jobConf, new Path(args[0]));
         FileOutputFormat.setOutputPath(jobConf, new Path(args[1]));

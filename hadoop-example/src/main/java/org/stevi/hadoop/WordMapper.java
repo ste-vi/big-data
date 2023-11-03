@@ -19,7 +19,7 @@ public class WordMapper extends MapReduceBase implements Mapper<LongWritable, Te
                     OutputCollector<Text, IntWritable> output,
                     Reporter reporter) {
 
-        var line = value.toString();
+        String line = value.toString();
 
         Arrays.stream(line.split(" "))
                 .filter(word -> !word.isEmpty())

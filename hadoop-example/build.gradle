@@ -6,8 +6,8 @@ version = '1.0-SNAPSHOT'
 
 mainClassName = 'org.stevi.hadoop.Main'
 
-sourceCompatibility = 21
-targetCompatibility = 21
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
