@@ -14,7 +14,7 @@ The folder contains simple hadoop MapReduce implementation for counting words of
 - run `docker exec -it namenode bash` and login into namenode
   - run `cd /tmp` and create folder `mkdir input`
 - open another terminal and 
-  - run `cp samples/text.txt e1020502778c:/tmp/input`, this will copy sample file into the container
+  - run `docker cp samples/text.txt e1020502778c:/tmp/input`, this will copy sample file into the container
   - run `./gradlew clean jar`
   - run `docker cp build/libs/hadoop-example-1.0-SNAPSHOT.jar e1020502778c:/tmp`, this will copy our mapReducer implementation into the container
 -  get back to the container bash terminal
